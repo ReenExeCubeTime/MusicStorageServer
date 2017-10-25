@@ -25,7 +25,7 @@ class ApiPlaylistControllerTest extends WebTestCase
         $client->request('POST', '/api/v1/playlist', ['title' => 'Test']);
 
         $this->assertResponseSuccess($client);
-        $this->assertResponseData(['title' => 'Test'], $client);
+        $this->assertResponseData(['id' => 1], $client);
     }
 
     private function assertResponseSuccess(Client $client)
