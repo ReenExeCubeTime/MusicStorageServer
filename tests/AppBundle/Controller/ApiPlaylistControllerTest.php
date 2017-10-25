@@ -8,11 +8,21 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApiPlaylistControllerTest extends WebTestCase
 {
-    public function testIndex()
+    public function testDefault()
     {
         $client = static::createClient();
 
         $client->request('GET', '/api/v1/playlist');
+
+        $this->assertResponseSuccess($client);
+        $this->assertResponseData([], $client);
+    }
+
+    public function testCreate()
+    {
+        $client = static::createClient();
+
+        $client->request('POST', '/api/v1/playlist');
 
         $this->assertResponseSuccess($client);
         $this->assertResponseData([], $client);
