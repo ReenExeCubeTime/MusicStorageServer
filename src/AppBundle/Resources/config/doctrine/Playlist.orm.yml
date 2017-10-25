@@ -1,6 +1,6 @@
 AppBundle\Entity\Playlist:
     type: entity
-    table: null
+    table: mp_playlist
     repositoryClass: AppBundle\Repository\PlaylistRepository
     id:
         id:
