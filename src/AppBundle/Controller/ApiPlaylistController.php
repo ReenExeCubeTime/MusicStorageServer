@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class ApiPlaylistController
 {
@@ -18,8 +19,12 @@ class ApiPlaylistController
     /**
      * @Route("/api/v1/playlist", name="api.playlist.create", methods={"POST"})
      */
-    public function create()
+    public function create(Request $request)
     {
-        return new JsonResponse([]);
+        $title = $request->request->get('title');
+
+        return new JsonResponse([
+            'title' => $title,
+        ]);
     }
 }

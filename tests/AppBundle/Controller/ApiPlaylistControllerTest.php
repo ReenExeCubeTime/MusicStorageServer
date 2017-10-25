@@ -22,10 +22,10 @@ class ApiPlaylistControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('POST', '/api/v1/playlist');
+        $client->request('POST', '/api/v1/playlist', ['title' => 'Test']);
 
         $this->assertResponseSuccess($client);
-        $this->assertResponseData([], $client);
+        $this->assertResponseData(['title' => 'Test'], $client);
     }
 
     private function assertResponseSuccess(Client $client)
